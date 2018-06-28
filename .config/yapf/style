@@ -1,0 +1,9 @@
+[style]
+based_on_style = pep8
+spaces_before_comment = 4
+column_limit = 110
+DEDENT_CLOSING_BRACKETS = true
+COALESCE_BRACKETS = true
+EACH_DICT_ENTRY_ON_SEPARATE_LINE = true
+JOIN_MULTIPLE_LINES = true
+#SPLIT_ALL_COMMA_SEPARATED_VALUES = true
