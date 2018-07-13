@@ -94,4 +94,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # added by Anaconda3 installer
 export PATH="/home/iyed/anaconda3/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
