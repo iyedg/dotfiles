@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo su
+sudo apt dist-upgrade -y
+sudo apt full-upgrade -y 
+
+sudo apt install zsh git golang python-dev python3-dev python-pip python3-pip guake
+
+# Install oh my zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
