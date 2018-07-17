@@ -97,3 +97,7 @@ export PATH="/home/iyed/anaconda3/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins
