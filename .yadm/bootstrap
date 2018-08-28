@@ -1,10 +1,19 @@
 #!/bin/bash
 
-sudo su
 sudo apt dist-upgrade -y
 sudo apt full-upgrade -y 
 
-sudo apt install zsh git golang python-dev python3-dev python-pip python3-pip guake
+sudo apt install zsh golang python-dev python3-dev python-pip python3-pip guake curl
 
 # Install oh my zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# Install antibody
+curl -sL git.io/antibody | sh -s
+
+# Install node
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Install fkill
+npm i -g fkill

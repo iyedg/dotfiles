@@ -94,6 +94,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # added by Anaconda3 installer
 export PATH="/home/iyed/anaconda3/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$(go env GOPATH)/bin
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -101,3 +103,4 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
+. /home/iyed/anaconda3/etc/profile.d/conda.sh
