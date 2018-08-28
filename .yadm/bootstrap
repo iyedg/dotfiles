@@ -17,3 +17,7 @@ sudo apt-get install -y nodejs
 
 # Install fkill
 npm i -g fkill
+
+# Aplly yadm 
+
+yadm stach apply
