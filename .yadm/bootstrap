@@ -3,23 +3,17 @@
 sudo apt dist-upgrade -y
 sudo apt full-upgrade -y 
 
-sudo apt install zsh golang python-dev python3-dev python-pip python3-pip guake curl -y 
+# Add node to sources
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 
+sudo apt install -y zsh golang guake curl libgconf-2-4 xclip nodejs
 
 # Install antibody
 curl -sL git.io/antibody | sh -s
 
-# Install node
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-# Apply yadm 
-
-yadm stach apply
-
-# Install oh my zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
-# Install fkill
-npm i -g fkill
+# Configure Github SSH
+ssh-keygen -t rsa -b 4096 -C "iyed.ghdemsi@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
+xdg-open "https://github.com/settings/ssh/new"
