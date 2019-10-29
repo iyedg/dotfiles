@@ -2,3 +2,15 @@ channels:
   - conda-forge
   - defaults
 auto_activate_base: false
+create_default_packages:
+  - pip
+  - jupyterlab
+  - pandas
+  - black
+  - isort
+  - jupyterlab_code_formatter
+  - loguru
+  - pytest
+  - pytest-sugar
+  - pytest-watch
+
