@@ -1,19 +1,7 @@
 djui/alias-tips
-wting/autojump
 hlissner/zsh-autopair
-popstas/zsh-command-time
-marzocchi/zsh-notify
 
-
-caarlos0/zsh-mkc
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
-
 zsh-users/zsh-history-substring-search
-
-bckim92/zsh-autoswitch-conda
-
-# annotations are also allowed:
-robbyrussell/oh-my-zsh folder:plugins/aws
-
