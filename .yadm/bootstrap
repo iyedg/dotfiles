@@ -3,17 +3,26 @@
 sudo apt dist-upgrade -y
 sudo apt full-upgrade -y 
 
-# Add node to sources
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-
-sudo apt install -y zsh golang guake curl libgconf-2-4 xclip nodejs
+sudo apt install -y zsh golang guake curl xclip neovim
 
 # Install antibody
 curl -sL git.io/antibody | sh -s
 
-# Configure Github SSH
+Configure Github SSH
 ssh-keygen -t rsa -b 4096 -C "iyed.ghdemsi@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 xdg-open "https://github.com/settings/ssh/new"
+
+# Install oh-my-zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install pyenv
+curl https://pyenv.run | bash
+
+# Install poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+poetry config virtualenvs.in-project true
+
+# Install homebrew for github hub
