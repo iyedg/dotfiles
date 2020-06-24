@@ -2,6 +2,7 @@ channels:
   - conda-forge
   - defaults
 auto_activate_base: false
+auto_update_conda: false
 create_default_packages:
   - pip
   - jupyterlab
@@ -10,7 +11,3 @@ create_default_packages:
   - isort
   - jupyterlab_code_formatter
   - loguru
-  - pytest
-  - pytest-sugar
-  - pytest-watch
-

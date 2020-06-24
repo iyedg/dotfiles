@@ -1,22 +1,17 @@
-autoload bashcompinit
-bashcompinit
+# Path to your oh-my-zsh installation.
 export ZSH="/home/iyed/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
-unsetopt AUTO_CD
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins
-alias degreen="chmod -R a-x,o-w,+X ."
+
+export PATH="$PATH:/opt/yarn-1.21.1/bin"
+export PATH="$PATH:`yarn global bin`"
 alias ls="exa"
+export PATH="$HOME/.poetry/bin:$PATH"
+source /usr/share/autojump/autojump.sh
 
-eval "$(direnv hook zsh)"
-eval "$(jump shell)"
-eval "$(pyenv virtualenv-init -)"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-source ~/.profile
-source $HOME/.poetry/env
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -33,6 +28,25 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-# Created by `userpath` on 2019-12-05 14:03:35
 export PATH="$PATH:/home/iyed/.local/bin"
+function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
+
+# Created by `userpath` on 2020-02-17 07:38:21
+export PATH="$PATH:/home/iyed/.local/bin"
+
+export DISPLAY=localhost:0.0
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
+fi
+

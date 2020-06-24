@@ -26,3 +26,21 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 export PATH=~/.npm-global/bin:$PATH
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/julia-1.3.1/bin:$PATH"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Created by `userpath` on 2020-02-08 12:19:57
+export PATH="$PATH:/home/iyed/.local/bin"
+
+# Created by `userpath` on 2020-02-08 13:07:01
+export PATH="$PATH:/home/iyed/.local/bin"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Created by `userpath` on 2020-02-12 07:13:41
+export PATH="$PATH:/home/iyed/.local/bin"
