@@ -10,7 +10,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-syntastic/syntastic'
 
 
-Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
+Plug 'NLKNguyen/papercolor-theme'
+
 
 Plug 'tpope/vim-commentary'
 
@@ -30,7 +32,13 @@ Plug 'junegunn/gv.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
+Plug 'lervag/vimtex'
+Plug 'vim-latex/vim-latex'
 
+"Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
+
+Plug 'majutsushi/tagbar'
 " List ends here. Plugins become visible to Vim after this call.
 
 call plug#end()
@@ -38,7 +46,18 @@ call plug#end()
 let mapleader=";"
 
 syntax enable
-autocmd vimenter * colorscheme gruvbox
+if (has("termguicolors"))
+   set termguicolors
+endif
+
+" autocmd vimenter * colorscheme OceanicNext
+" let g:airline_theme='oceanicnext'
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+
+set background=dark
+colorscheme PaperColor
+
 
 set number relativenumber
 set nu rnu
@@ -56,4 +75,10 @@ set cursorline
 source ~/.config/nvim/plug-config/signify.vim
 source ~/.config/nvim/plug-config/smeshi.vim
 source ~/.config/nvim/plug-config/fzf.vim
+" source ~/.config/nvim/plug-config/start-screen.vim
+source ~/.config/nvim/plug-config/which-key.vim
+
+" Latex suite
+let g:tex_flavor='latex'
+filetype plugin on
 
