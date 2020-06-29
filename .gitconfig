@@ -3,3 +3,5 @@
 	name = Iyed Ghedamsi
 [color]
 	ui = auto
+[core]
+	editor = vim
