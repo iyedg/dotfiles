@@ -11,7 +11,7 @@ alias ls="exa"
 export PATH="$HOME/.poetry/bin:$PATH"
 source /usr/share/autojump/autojump.sh
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
