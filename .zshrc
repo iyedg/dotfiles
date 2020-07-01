@@ -50,8 +50,6 @@ if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
 
-
-
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(lua ~/z.lua --init zsh enhanced once fzf)"
