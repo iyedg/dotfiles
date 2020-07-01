@@ -10,6 +10,8 @@ endif
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
+Plug 'psliwka/vim-smoothie'
+
 Plug 'tpope/vim-sensible'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
@@ -50,12 +52,21 @@ Plug 'junegunn/limelight.vim'
 " Motion
 Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
+
+" Accounting
+Plug 'nathangrigg/vim-beancount'
+
+" Python
+
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+
 call plug#end()
 " }}}
 
 " General {{{
 
 let mapleader=" "
+set splitright
 
 " }}}
 
@@ -69,9 +80,9 @@ endif
 
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-colorscheme base16-seti
+colorscheme base16-oceanicnext
 
-set nu rnu
+set number relativenumber
 set noswapfile
 
 " Highlight lines and columns
@@ -81,13 +92,13 @@ set cursorline
 
 " Fzf {{{
 
-nnoremap <leader><leader> :GFiles<CR>
-nnoremap <leader>fi       :Files<CR>
-nnoremap <leader>C        :Colors<CR>
-nnoremap <leader><CR>     :Buffers<CR>
-nnoremap <leader>fl       :Lines<CR>
-nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
-nnoremap <leader>m        :History<CR>
+nnoremap <leader>gf   :GFiles<CR>
+nnoremap <leader>ff   :Files<CR>
+nnoremap <leader>C    :Colors<CR>
+nnoremap <leader><CR> :Buffers<CR>
+nnoremap <leader>fl   :Lines<CR>
+nnoremap <leader>ag   :Ag! <C-R><C-W><CR>
+nnoremap <leader>m    :History<CR>
 
 " }}}
 
@@ -120,7 +131,7 @@ else
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" NOTE: Use comm and ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -281,6 +292,7 @@ vmap > >gv
 " }}}
 
 " Basic settings {{{
+
 set mouse=a
 syntax on
 set encoding=utf-8
@@ -332,8 +344,12 @@ let g:qs_max_chars=150
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-set foldmethod=syntax
 
 " }}}
 
+" vim-pydocstring {{{
+let g:pydocstring_formatter = 'google'
+" }}}
+
 " vim:foldmethod=marker:foldlevel=0
+
