@@ -84,7 +84,7 @@ endif
 
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-colorscheme base16-oceanicnext
+colorscheme base16-dracula
 
 set number relativenumber
 set noswapfile
