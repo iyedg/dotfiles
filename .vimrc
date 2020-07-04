@@ -72,6 +72,12 @@ call plug#end()
 
 let mapleader=" "
 set splitright
+" make <a-j>, <a-k>, <a-l>, and <a-h> move to window.
+nnoremap <leader>wj <c-w>j
+nnoremap <leader>wk <c-w>k
+nnoremap <leader>wl <c-w>l
+nnoremap <leader>wh <c-w>h
+nnoremap <leader>wo <c-w>o
 
 " }}}
 
