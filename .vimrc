@@ -96,7 +96,7 @@ set cursorline
 
 " Fzf {{{
 
-nnoremap <leader>gf   :GFiles<CR>
+nnoremap <leader>fg   :GFiles<CR>
 nnoremap <leader>ff   :Files<CR>
 nnoremap <leader>C    :Colors<CR>
 nnoremap <leader><CR> :Buffers<CR>
