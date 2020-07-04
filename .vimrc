@@ -10,6 +10,7 @@ endif
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
+Plug 'reedes/vim-pencil'
 Plug 'psliwka/vim-smoothie'
 
 Plug 'tpope/vim-sensible'
@@ -353,3 +354,13 @@ let g:pydocstring_formatter = 'google'
 
 " vim:foldmethod=marker:foldlevel=0
 
+" vim-pencil {{{
+
+augroup pencil
+  autocmd!
+              autocmd         FileType         markdown,mkd                                    call         pencil#init()
+              autocmd         FileType         latex,tex                                       call         pencil#init({'wrap': 'hard'})
+              autocmd         FileType         text                                            call         pencil#init()
+augroup END
+
+" }}}
