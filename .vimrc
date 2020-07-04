@@ -14,6 +14,7 @@ Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'vimwiki/vimwiki'
 Plug 'psliwka/vim-smoothie'
 
 Plug 'tpope/vim-sensible'
@@ -386,6 +387,11 @@ let g:pydocstring_formatter = 'numpy'
 map <leader>z :Goyo<CR>
 
 " }}}
+" vim-wiki {{{
+
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
+au FileType vimwiki setlocal shiftwidth=2 tabstop=2
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
