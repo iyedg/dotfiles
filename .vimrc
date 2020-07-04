@@ -72,6 +72,24 @@ call plug#end()
 
 let mapleader=" "
 set splitright
+"Splits open at the bottom and right, this is best in life
+set splitright splitbelow
+
+" adds ability to undo changes even if vim was previously closed
+set undodir=$HOME/.local/share/vim/undo
+set undofile
+set undolevels=1000 undoreload=10000
+
+" Use system clipboard
+set clipboard=unnamedplus
+
+" Mouse support
+set mouse=a
+
+syntax on
+set encoding=utf-8
+
+nnoremap = <C-;>
 " make <a-j>, <a-k>, <a-l>, and <a-h> move to window.
 nnoremap <leader>wj <c-w>j
 nnoremap <leader>wk <c-w>k
@@ -329,13 +347,6 @@ vmap < <gv
 vmap > >gv
 " }}}
 
-" Basic settings {{{
-
-set mouse=a
-syntax on
-set encoding=utf-8
-
-" }}}
 
 " VIMRC {{{
 
