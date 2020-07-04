@@ -381,6 +381,11 @@ set foldnestmax=10
 " vim-pydocstring {{{
 let g:pydocstring_formatter = 'google'
 let g:pydocstring_formatter = 'numpy'
+" Goyo {{{
+
+map <leader>z :Goyo<CR>
+
+" }}}
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
