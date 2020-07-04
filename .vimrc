@@ -303,12 +303,17 @@ highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#ff
 " }}}
 
 " Floaterm {{{
-tnoremap <Esc> <C-\><C-n>
-tnoremap <Esc>q <C-\><C-n> :FloatermHide <CR>
-tnoremap <Esc>Q <C-\><C-n> :FloatermKill <CR>
 
-noremap <leader>ft :FloatermToggle <CR>
-noremap <C-o> :FloatermNew vifm <CR>
+tnoremap <silent> <Esc> <C-\><C-n> :FloatermKill<CR>
+
+tnoremap <silent> <C-t> <C-\><C-n> :FloatermToggle<CR>
+noremap <silent> <C-t> :FloatermToggle<CR>
+
+noremap <silent> <C-o> :FloatermNew vifm<CR>
+
+let g:floaterm_autoinsert=1
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=2
 " }}}
 
 " Utilities {{{
