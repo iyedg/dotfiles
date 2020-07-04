@@ -11,6 +11,9 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'reedes/vim-pencil'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'psliwka/vim-smoothie'
 
 Plug 'tpope/vim-sensible'
@@ -353,6 +356,14 @@ let g:pydocstring_formatter = 'google'
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
+" markdown {{{
+
+set conceallevel=2
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1 " requires vim-toml
+
+"}}}
 
 " vim-pencil {{{
 
