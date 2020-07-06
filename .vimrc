@@ -13,10 +13,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'reedes/vim-pencil'
+
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 Plug 'vimwiki/vimwiki'
+
+Plug 'liuchengxu/vim-which-key'
+
 Plug 'psliwka/vim-smoothie'
 
 Plug 'tpope/vim-sensible'
@@ -49,8 +54,7 @@ Plug 'voldikss/vim-floaterm'
 
 " Appearance
 "" Themes
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'chriskempson/base16-vim'
+Plug 'ayu-theme/ayu-vim'
 
 "" Distraction free
 Plug 'junegunn/goyo.vim'
@@ -73,7 +77,7 @@ call plug#end()
 " General {{{
 
 let mapleader=" "
-set splitright
+
 "Splits open at the bottom and right, this is best in life
 set splitright splitbelow
 
@@ -91,7 +95,8 @@ set mouse=a
 syntax on
 set encoding=utf-8
 
-nnoremap = <C-;>
+" nnoremap = <C-;>
+
 " make <a-j>, <a-k>, <a-l>, and <a-h> move to window.
 nnoremap <leader>wj <c-w>j
 nnoremap <leader>wk <c-w>k
@@ -111,7 +116,8 @@ endif
 
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-colorscheme base16-dracula
+let ayucolor="mirage"
+colorscheme ayu
 
 set number relativenumber
 set noswapfile
@@ -147,7 +153,7 @@ function! FloatingFZF()
   let height = float2nr(&lines * 0.6)
   let width = float2nr(&columns * 0.7)
   let horizontal = float2nr((&columns - width) / 2)
-  let vertical = 1
+  let vertical = float2nr((&lines * 0.8 - height) / 2)
   let opts = {
         \ 'relative': 'editor',
         \ 'row': vertical,
@@ -158,6 +164,7 @@ function! FloatingFZF()
         \ }
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
 " }}}
 
 " Coc{{{
@@ -317,10 +324,9 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 
-
 " If you like colors instead
-highlight SignifySignAdd                  ctermbg=green                guibg=#00ff00
-highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#ff0000
+" highlight SignifySignAdd                  ctermbg=green                guibg=#00ff00
+" highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#ff0000
 
 " }}}
 
@@ -336,6 +342,7 @@ noremap <silent> <C-o> :FloatermNew vifm<CR>
 let g:floaterm_autoinsert=1
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=2
+
 " }}}
 
 " Utilities {{{
@@ -348,7 +355,6 @@ autocmd BufWritePre * %s/\s\+$//e
 vmap < <gv
 vmap > >gv
 " }}}
-
 
 " VIMRC {{{
 
@@ -399,21 +405,53 @@ set foldnestmax=10
 " }}}
 
 " vim-pydocstring {{{
-let g:pydocstring_formatter = 'google'
-let g:pydocstring_formatter = 'numpy'
-" Goyo {{{
 
-map <leader>z :Goyo<CR>
+let g:pydocstring_formatter = 'numpy'
 
 " }}}
+
+" Goyo {{{
+
+nmap <leader>z :Goyo <bar> :Limelight!!<CR>
+
+" }}}
+
+" which-key {{{
+
+" Map leader to which_key
+nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+" Create map to add keys to
+let g:which_key_map =  {}
+" Define a separator
+let g:which_key_sep = '→'
+
+set timeoutlen=100
+
+" Single mappings
+let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
+let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
+let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below']
+let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right']
+let g:which_key_map['z'] = [ 'Goyo'                       , 'zen' ]
+
+" }}}
+
 " vim-wiki {{{
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
-au FileType vimwiki setlocal shiftwidth=2 tabstop=2
+au FileType vimwiki setlocal shiftwidth=4 tabstop=4
+
+nmap <F13> <Plug>VimwikiNextLink
+
+nmap <F14> <Plug>VimwikiPrevLink
+
+nmap <F15> <Plug>VimwikiAddHeaderLevel
+
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
 " markdown {{{
 
 set conceallevel=2
@@ -427,9 +465,11 @@ let g:vim_markdown_toml_frontmatter = 1 " requires vim-toml
 
 augroup pencil
   autocmd!
-              autocmd         FileType         markdown,mkd                                    call         pencil#init()
+              autocmd         FileType         markdown,mkd                                    call         pencil#init({'wrap': 'soft'})
               autocmd         FileType         latex,tex                                       call         pencil#init({'wrap': 'hard'})
               autocmd         FileType         text                                            call         pencil#init()
 augroup END
 
 " }}}
+
+" vim:foldmethod=marker:foldlevel=0
