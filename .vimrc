@@ -10,6 +10,8 @@ endif
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
+Plug 'rafi/awesome-vim-colorschemes'
+
 Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
