@@ -5,7 +5,7 @@
 " ==============================
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  silent execute "!curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
@@ -14,6 +14,27 @@ endif
 " VIM-PLUG BLOCK {{{
 " ==============================
 call plug#begin('~/.vim/plugged')
+
+" Scratchpad
+Plug 'ChristianChiarulli/codi.vim'
+
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+
+Plug 'itchyny/calendar.vim'
+
+" Auto pairing
+Plug 'jiangmiao/auto-pairs'
+
+" pandoc
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" Databases
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'kristijanhusak/vim-dadbod-completion'
 
 " Navigation
 Plug 'preservim/nerdtree'
@@ -27,12 +48,13 @@ Plug 'reedes/vim-pencil'
 
 " Indentation
 Plug 'tpope/vim-sleuth'
+Plug 'Vimjas/vim-python-pep8-indent'
 
-" WIKI
+" which_key
 Plug 'liuchengxu/vim-which-key'
 
 " Scrolling
-Plug 'psliwka/vim-smoothie'
+ Plug 'psliwka/vim-smoothie'
 
 Plug 'tpope/vim-sensible'
 
@@ -46,11 +68,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Syntax highlighting for python
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
 " Comments
-Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 " Fuzzy searching
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
@@ -67,8 +91,11 @@ Plug 'voldikss/vim-floaterm'
 
 " Colors
 Plug 'ayu-theme/ayu-vim'
+Plug 'skbolton/embark'
+Plug 'mhartington/oceanic-next'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'rafi/awesome-vim-colorschemes'
+
+Plug 'ryanoasis/vim-devicons'
 
 
 " Distraction free
@@ -83,7 +110,9 @@ Plug 'unblevable/quick-scope'
 Plug 'nathangrigg/vim-beancount'
 
 " Python
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'kkoomen/vim-doge'
+Plug 'python-rope/ropevim'
 
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -95,7 +124,7 @@ call plug#end()
 " GENERAL SETTINGS {{{
 " ==============================
 let mapleader=" "
-let localmapleader=" "
+let localmapleader=";"
 
 "Splits open at the bottom and right
 set splitright splitbelow
@@ -137,8 +166,11 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-let ayucolor="dark"
-colorscheme ayu
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
 
 set number relativenumber
 set noswapfile
@@ -150,10 +182,10 @@ set cursorline
 " ==============================
 nnoremap <leader>fg   :Clap git_files<CR>
 nnoremap <leader>ff   :Clap files<CR>
-nnoremap <leader>C    :Clap colors<CR>
+nnoremap <leader>fc    :Clap colors<CR>
 nnoremap <leader><CR> :Clap buffers<CR>
 nnoremap <leader>fl   :Clap lines<CR>
-nnoremap <leader>m    :Clap history<CR>
+nnoremap <leader>fh    :Clap history<CR>
 " }}}
 " ==============================
 " INDENT-LINE {{{
@@ -222,10 +254,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -242,7 +274,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
@@ -277,7 +309,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics.
 nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
 " Show commands.
-nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <leader>C  :<C-u>CocList commands<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -288,21 +320,6 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 " ==============================
 " SEMSHI {{{
 " ==============================
-hi semshiLocal           ctermfg=209 guifg=#ff875f
-hi semshiGlobal          ctermfg=214 guifg=#ffaf00
-hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
-hi semshiParameter       ctermfg=75  guifg=#5fafff
-hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
-hi semshiFree            ctermfg=218 guifg=#ffafd7
-hi semshiBuiltin         ctermfg=207 guifg=#ff5fff
-hi semshiAttribute       ctermfg=49  guifg=#00ffaf
-hi semshiSelf            ctermfg=249 guifg=#b2b2b2
-hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
-hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=161 guibg=#d7005f
-
-hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
-sign define semshiError text=E> texthl=semshiErrorSign
 " }}}
 " ==============================
 " SIGNIFY {{{
@@ -376,14 +393,10 @@ set foldlevelstart=10
 set foldnestmax=10
 " }}}
 " ==============================
-" VIM-PYDOCSTRING {{{
-" ==============================
-let g:pydocstring_formatter = 'numpy'
-" }}}
-" ==============================
 " GOYO {{{
 " ==============================
-nmap <leader>z :Goyo <bar> :Limelight!!<CR>
+nmap <leader>z :Goyo <CR>
+let g:goyo_width = '70%'
 " }}}
 " ==============================
 " WHICH-KEY  {{{
@@ -426,7 +439,6 @@ set conceallevel=2
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1 " requires vim-toml
-let g:mkdp_markdown_css = '/home/iyed/github-markdown.css'
 " }}}
 " ==============================
 " VIM-PENCIL  {{{
@@ -438,7 +450,54 @@ augroup pencil
   autocmd         FileType         text                                            call         pencil#init()
 augroup END
 " }}}
+" ==============================
+" VIMTEX {{{
+" ==============================
+let g:vimtex_compiler_progname = 'nvr'
+set conceallevel=0
+let g:tex_conceal='abdgm'
+let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
+" }}}
+" ==============================
+" SNIPPETS {{{
+" ==============================
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<C-s>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+" }}}
+" ==============================
+" CYCLE BUFFERS {{{
+" ==============================
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+" }}}
+" ==============================
+" CALENDAR {{{
+" ==============================
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+" }}}
+" ==============================
+" NERDTREE {{{
+" ==============================
+" TODO: remove mapping from other plugin
+nmap <C-o> :NERDTreeToggle<CR>
+"}}}
 
+" Edit and source vimrc
+nnoremap <leader>bb :e ~/.accounting.bean<CR>
 
 let @z='0v$gUI" O-€kb=vy29pjA {{{kyyjpo€kb€kbi" }}}O€kb€kbOkj'
 
+let g:dbs = [
+\ { 'name': 'municipal', 'url': 'sqlite:///home/iyed/Projects/Personal/municipal_performance_scraping/data/intermediate/municipal_performance.sqlite3' }
+\ ]
+
+let g:db_ui_save_location = '~/.queries'
+
+source ~/.cache/calendar.vim/credentials.vim
+
+autocmd BufWritePost *.bean :make
+autocmd BufWritePost *.beancount :make
