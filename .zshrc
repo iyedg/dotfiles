@@ -1,42 +1,25 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/iyed/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:/opt/yarn-1.21.1/bin"
-export PATH="$PATH:`yarn global bin`"
 alias ls="exa"
 export PATH="$HOME/.poetry/bin:$PATH"
-source /usr/share/autojump/autojump.sh
 
 # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/iyed/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/iyed/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/iyed/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/iyed/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="$PATH:/home/iyed/.local/bin"
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 # Created by `userpath` on 2020-02-17 07:38:21
 export PATH="$PATH:/home/iyed/.local/bin"
 
-export DISPLAY=localhost:0.0
+export PATH="$PATH:/home/iyed/.scripts"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export  PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -52,4 +35,26 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(lua ~/z.lua --init zsh enhanced once fzf)"
+eval "$(lua /usr/local/bin/z.lua --init zsh enhanced once fzf)"
+alias icat="kitty +kitten icat"
+alias ssh="kitty +kitten ssh"
+alias spotify="env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U"
+
+alias js="~/.startup_scripts/init_lab.sh"
+
+
+codi() {
+   local syntax="${1:-python}"
+   shift
+   nvim -c \
+     "let g:startify_disable_at_vimenter = 1 |\
+     set bt=nofile ls=0 noru nonu nornu |\
+     hi CodiVirtualText guifg=red
+     hi ColorColumn ctermbg=NONE |\
+     hi VertSplit ctermbg=NONE |\
+     hi NonText ctermfg=0 |\
+     Codi $syntax" "$@"
+}
+
+export SPICETIFY_INSTALL="/home/iyed/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
