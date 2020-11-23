@@ -1,0 +1,13 @@
+{
+  "python.linting.enabled": true,
+  "python.linting.pylamaEnabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  "python.jediEnabled": false,
+  "python.autoUpdateLanguageServer": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "json"
+  ]
+}
