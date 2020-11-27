@@ -29,17 +29,17 @@ Plug 'preservim/nerdtree'
 "Plug 'rhysd/vim-grammarous'
 
 " Indentation
-"Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 
 " Folding
-"Plug 'Konfekt/FastFold'
-"Plug 'kalekundert/vim-coiled-snake'
+Plug 'kalekundert/vim-coiled-snake'
+Plug 'Konfekt/FastFold'
 
 " which_key
 "Plug 'liuchengxu/vim-which-key'
 
 " Scrolling
-"Plug 'psliwka/vim-smoothie'
+Plug 'psliwka/vim-smoothie'
 
 
 " LSP

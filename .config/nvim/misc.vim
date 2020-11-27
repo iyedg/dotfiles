@@ -1,7 +1,13 @@
+" Start with all folds folded (like in this file)
+set foldlevelstart=0
+
 set expandtab
 
-"Splits open at the bottom and right
-set splitright splitbelow
+" Vertical splits split right
+set splitright
+
+" Splits split below
+set splitbelow
 
 " adds ability to undo changes even if vim was previously closed
 set undodir=$HOME/.local/share/vim/undo

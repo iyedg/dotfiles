@@ -27,3 +27,7 @@ nnoremap <leader>bk :bnext<CR>
 nnoremap <leader>bj :bprev<CR>
 nnoremap <leader>bh :bfirst<CR>
 nnoremap <leader>bl :blast<CR>
+
+" Credits to https://www.jakeworth.com/my-annotated-vimrc/
+" Substitute a highlighted word (h/t Vidal Ekechukwu)
+vnoremap <c-r> "hy:%s/<c-r>h//gc<left><left><left>
