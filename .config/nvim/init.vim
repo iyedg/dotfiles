@@ -10,10 +10,10 @@ source $HOME/.config/nvim/plugins_config/nerdtree.vim
 source $HOME/.config/nvim/plugins_config/snippets.vim
 source $HOME/.config/nvim/plugins_config/vimtex.vim
 source $HOME/.config/nvim/plugins_config/goyo.vim
-"source $HOME/.config/nvim/plugins_config/markdown.vim
+source $HOME/.config/nvim/plugins_config/markdown.vim
 source $HOME/.config/nvim/plugins_config/vim-wiki.vim
-"source $HOME/.config/nvim/plugins_config/which-key.vim
-"source $HOME/.config/nvim/plugins_config/pencil.vim
+source $HOME/.config/nvim/plugins_config/which-key.vim
+source $HOME/.config/nvim/plugins_config/pencil.vim
 source $HOME/.config/nvim/plugins_config/quick-motion.vim
 source $HOME/.config/nvim/plugins_config/sneak.vim
 source $HOME/.config/nvim/plugins_config/floaterm.vim
@@ -33,5 +33,5 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 " https://vi.stackexchange.com/a/12865
-nnoremap <expr> T &foldlevel ? 'zM' :'zR'
-
+" nnoremap <expr> T &foldlevel ? 'zM' :'zR'
+autocmd VimEnter *  AWStart

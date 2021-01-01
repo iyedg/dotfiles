@@ -32,3 +32,7 @@ export PATH=~/.npm-global/bin:$PATH
 
 # Created by `userpath` on 2020-02-08 12:19:57
 export PATH="$PATH:/home/iyed/.local/bin"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH=$PATH:/usr/local/go/bin

@@ -5,7 +5,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'lambdalisue/suda.vim'
 
 " Scratchpad
-Plug 'ChristianChiarulli/codi.vim'
+Plug 'metakirby5/codi.vim'
 
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
@@ -21,12 +21,12 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'preservim/nerdtree'
 
 " Writing Prose and Markdown
-"Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-"Plug 'vimwiki/vimwiki'
-"Plug 'reedes/vim-pencil'
-"Plug 'rhysd/vim-grammarous'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'vimwiki/vimwiki'
+Plug 'reedes/vim-pencil'
+Plug 'rhysd/vim-grammarous'
 
 " Indentation
 Plug 'tpope/vim-sleuth'
@@ -36,7 +36,7 @@ Plug 'kalekundert/vim-coiled-snake'
 Plug 'Konfekt/FastFold'
 
 " which_key
-"Plug 'liuchengxu/vim-which-key'
+Plug 'liuchengxu/vim-which-key'
 
 " Scrolling
 Plug 'psliwka/vim-smoothie'
@@ -53,11 +53,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Comments
-"Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " Snippets
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 
 " Fuzzy searching
@@ -74,18 +74,19 @@ Plug 'lervag/vimtex'
 Plug 'voldikss/vim-floaterm'
 
 " Colors
-"Plug 'ayu-theme/ayu-vim'
-"Plug 'mhartington/oceanic-next'
+Plug 'ayu-theme/ayu-vim'
+Plug 'mhartington/oceanic-next'
 Plug 'drewtempelmeyer/palenight.vim'
-"Plug 'rafi/awesome-vim-colorschemes'
+Plug 'humanoid-colors/vim-humanoid-colorscheme'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-"Plug 'TaDaa/vimade'
-"Plug 'arcticicestudio/nord-vim'
-"Plug 'embark-theme/vim', { 'as': 'embark' }
-"Plug 'flrnd/candid.vim'
-"Plug 'haishanh/night-owl.vim'
-"Plug 'ghifarit53/tokyonight-vim'
-"
+Plug 'TaDaa/vimade'
+Plug 'arcticicestudio/nord-vim'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'flrnd/candid.vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'ghifarit53/tokyonight-vim'
+
 Plug 'ryanoasis/vim-devicons'
 
 
@@ -103,10 +104,17 @@ Plug 'nathangrigg/vim-beancount'
 
 " Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-"Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'python-rope/ropevim'
 
 Plug 'Yggdroot/indentLine'
 
 Plug 'simnalamburt/vim-mundo'
+
+Plug 'lambdalisue/fern.vim'
+Plug 'antoinemadec/FixCursorHold.nvim'
+let g:cursorhold_updatetime = 100
+
+" watcher
+Plug 'ActivityWatch/aw-watcher-vim'
 call plug#end()

@@ -33,7 +33,7 @@ endif
 
 set t_Co=256
 set background=dark
-colorscheme palenight
+colorscheme PaperColor
 
 
 set number relativenumber

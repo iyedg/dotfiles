@@ -62,8 +62,8 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+#super + {p,b,comma,period}
+	#bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
@@ -71,7 +71,11 @@ super + {_,shift + }c
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	#bspc desktop -f {prev,next}.local
+	desk=`bspc query -D -d focused`; \
+	bspc desktop -m {prev,next}; \
+	bspc monitor -f {prev,next}; \
+	bspc desktop -f $desk
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -137,3 +141,21 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86MonBrightnessUp
+	light -A 5 && dunstify "Brightness at " $(light -G)
+
+XF86MonBrightnessDown
+	light -U 5 && dunstify "Brightness at " $(light -G)
+
+super + b
+	firefox
+
+super + shift + b
+	firefox --private-window
+
+super + shift + x
+	multilockscreen -l & || systemctl suspend
+
+super + r
+	autorandr --change

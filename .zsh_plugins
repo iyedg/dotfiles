@@ -5,6 +5,8 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
-antibody bundle denysdovhan/spaceship-prompt
+denysdovhan/spaceship-prompt
 
 skywind3000/z.lua
+
+softmoth/zsh-vim-mode
