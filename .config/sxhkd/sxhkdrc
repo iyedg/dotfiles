@@ -8,10 +8,16 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -combi-modi window#drun -show combi -modi combi -show-icons
+	sh /home/iyed/.config/rofi/bin/launcher_misc
 
 super + shift + @space
-	rofi -show run
+	rofi -show run -theme $HOME/.config/rofi/launchers/misc/kde_krunner
+
+super + shift + p
+	sh /home/iyed/.config/rofi/bin/powermenu
+
+super +  p
+	bwmenu
 
 # make sxhkd reload its configuration files:
 super + Escape

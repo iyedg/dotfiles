@@ -22,21 +22,23 @@ set mouse=a
 
 syntax on
 set encoding=utf-8
+set number
 
 " UI {{{
 " ==============================
 syntax enable
 
-if (has("termguicolors"))
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
 set t_Co=256
-set background=dark
-colorscheme PaperColor
+
+colorscheme ayu
 
 
-set number relativenumber
+
 set noswapfile
 " Highlight lines and columns
 set cursorline
@@ -47,3 +49,4 @@ autocmd BufWritePre * %s/\s\+$//e
 
 set diffopt+=vertical
 set timeoutlen=300
+

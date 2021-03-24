@@ -30,4 +30,10 @@ nnoremap <leader>bl :blast<CR>
 
 " Credits to https://www.jakeworth.com/my-annotated-vimrc/
 " Substitute a highlighted word (h/t Vidal Ekechukwu)
-vnoremap <c-r> "hy:%s/<c-r>h//gc<left><left><left>
+" vnoremap <c-r> "hy:%s/<c-r>h//gc<left><left><left>
+"
+xmap <c-c><c-s> <Plug>SlimeRegionSend
+nmap <c-c><c-s> <Plug>SlimeParagraphSend
+
+let g:slime_no_mappings = 1
+let g:slime_target = "tmux"

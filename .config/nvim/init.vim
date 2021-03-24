@@ -3,8 +3,13 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keybindings.vim
 source $HOME/.config/nvim/misc.vim
 
-source $HOME/.config/nvim/plugins_config/vim-clap.vim
-"source $HOME/.config/nvim/plugins_config/fzf.vim
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
+let g:doge_doc_standard_python = 'google'
+
 source $HOME/.config/nvim/plugins_config/coc.vim
 source $HOME/.config/nvim/plugins_config/nerdtree.vim
 source $HOME/.config/nvim/plugins_config/snippets.vim
@@ -20,6 +25,10 @@ source $HOME/.config/nvim/plugins_config/floaterm.vim
 source $HOME/.config/nvim/plugins_config/airline.vim
 source $HOME/.config/nvim/plugins_config/signify.vim
 source $HOME/.config/nvim/plugins_config/mundo.vim
+source $HOME/.config/nvim/plugins_config/simply_fold.vim
+source $HOME/.config/nvim/plugins_config/grammarous.vim
+source $HOME/.config/nvim/plugins_config/beancount.vim
+source $HOME/.config/nvim/plugins_config/indentLine.vim
 
 
 " Snippet thanks to https://github.com/neovim/neovim/issues/1887#issuecomment-280653872
@@ -28,8 +37,6 @@ if exists("$VIRTUAL_ENV")
 else
     let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 endif
-
-autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 " https://vi.stackexchange.com/a/12865

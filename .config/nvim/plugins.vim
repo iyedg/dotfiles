@@ -32,8 +32,9 @@ Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-sleuth'
 
 " Folding
-Plug 'kalekundert/vim-coiled-snake'
+" Plug 'kalekundert/vim-coiled-snake'
 Plug 'Konfekt/FastFold'
+Plug 'tmhedberg/SimpylFold'
 
 " which_key
 Plug 'liuchengxu/vim-which-key'
@@ -61,7 +62,9 @@ Plug 'honza/vim-snippets'
 
 
 " Fuzzy searching
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Git plugins
 Plug 'tpope/vim-fugitive'
@@ -75,19 +78,24 @@ Plug 'voldikss/vim-floaterm'
 
 " Colors
 Plug 'ayu-theme/ayu-vim'
-Plug 'mhartington/oceanic-next'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'TaDaa/vimade'
 Plug 'arcticicestudio/nord-vim'
 Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'flrnd/candid.vim'
 Plug 'haishanh/night-owl.vim'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'mhartington/oceanic-next'
+Plug 'sheerun/vim-polyglot'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
 Plug 'ryanoasis/vim-devicons'
+
+" Highlight the active window
+Plug 'TaDaa/vimade'
 
 
 " Distraction free
@@ -111,10 +119,12 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'simnalamburt/vim-mundo'
 
-Plug 'lambdalisue/fern.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 let g:cursorhold_updatetime = 100
 
 " watcher
 Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'mhinz/vim-startify'
+
+
 call plug#end()
