@@ -1,0 +1,7 @@
+require('config.colorscheme')
+require('config.nerdtree')
+require('config.telescope')
+require('config.airline')
+require('config.lsp')
+require('config.compe')
+require('config.neoformat')
