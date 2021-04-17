@@ -7,3 +7,7 @@
 	editor = nvim
 [pull]
 	rebase = false
+[init]
+	defaultBranch = trunk
+[hub]
+	protocol = ssh

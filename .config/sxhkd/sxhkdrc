@@ -149,16 +149,16 @@ XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86MonBrightnessUp
-	light -A 5 && dunstify "Brightness at " $(light -G)
+	light -A 5
 
 XF86MonBrightnessDown
-	light -U 5 && dunstify "Brightness at " $(light -G)
+	light -U 5
 
 super + b
-	firefox
+	brave
 
 super + shift + b
-	firefox --private-window
+	brave --incognito
 
 super + shift + x
 	multilockscreen -l & || systemctl suspend
