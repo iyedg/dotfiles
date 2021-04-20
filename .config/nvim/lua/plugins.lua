@@ -6,6 +6,7 @@ return require('packer').startup(function()
   -- Color schemes
   use { 'sainnhe/gruvbox-material' }
   use { 'drewtempelmeyer/palenight.vim' }
+  use { 'folke/tokyonight.nvim' }
   
   -- Fuzzy finder
   use {
@@ -17,6 +18,8 @@ return require('packer').startup(function()
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/nvim-compe' }
   use { 'mattn/efm-langserver' }
+  use { 'onsails/lspkind-nvim' }
+  use { 'kabouzeid/nvim-lspinstall' }
 
   -- Formatting
   use { 'sbdchd/neoformat' }
@@ -51,8 +54,13 @@ return require('packer').startup(function()
   use { 'psliwka/vim-smoothie' }
 
   -- Status bar
-  use { 'vim-airline/vim-airline' }
-  use { 'vim-airline/vim-airline-themes' }
+  use {
+  'hoob3rt/lualine.nvim',
+  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
+  -- Tabline
+  use { 'romgrk/barbar.nvim' }
 
   -- Comments
   use { 'preservim/nerdcommenter' }

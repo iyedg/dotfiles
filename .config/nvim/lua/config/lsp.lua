@@ -30,3 +30,29 @@ utils.map('n', '<C-space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 --cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
 
 
+-- commented options are defaults
+require('lspkind').init({
+    -- with_text = true,
+    -- symbol_map = {
+    --   Text = '',
+    --   Method = 'ƒ',
+    --   Function = '',
+    --   Constructor = '',
+    --   Variable = '',
+    --   Class = '',
+    --   Interface = 'ﰮ',
+    --   Module = '',
+    --   Property = '',
+    --   Unit = '',
+    --   Value = '',
+    --   Enum = '了',
+    --   Keyword = '',
+    --   Snippet = '﬌',
+    --   Color = '',
+    --   File = '',
+    --   Folder = '',
+    --   EnumMember = '',
+    --   Constant = '',
+    --   Struct = ''
+    -- },
+})

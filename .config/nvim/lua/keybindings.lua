@@ -10,11 +10,6 @@ utils.map('v', '>', '>gv')
 -- utils.map('n', '<esc>^[', '<esc>^[')
 
 
--- Cycle Buffers
-utils.map('n', '<leader>bk', ':bnext<CR>')
-utils.map('n', '<leader>bj', ':bprev<CR>')
-utils.map('n', '<leader>bh', ':bfirst<CR>')
-utils.map('n', '<leader>bl', ':blast<CR>')
 
 -- Credits to https://www.jakeworth.com/my-annotated-vimrc/
 -- Substitute a highlighted word (h/t Vidal Ekechukwu)

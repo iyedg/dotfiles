@@ -160,8 +160,3 @@ super + b
 super + shift + b
 	brave --incognito
 
-super + shift + x
-	multilockscreen -l & || systemctl suspend
-
-super + r
-	autorandr --change
