@@ -13,6 +13,9 @@ super + @space
 super + shift + @space
 	rofi -show run -theme $HOME/.config/rofi/launchers/misc/kde_krunner
 
+super + shift + f
+	rofi  -show find -modi find:~/.local/share/rofi/finder.sh -theme $HOME/.config/rofi/launchers/misc/kde_krunner
+
 super + shift + p
 	sh /home/iyed/.config/rofi/bin/powermenu
 
