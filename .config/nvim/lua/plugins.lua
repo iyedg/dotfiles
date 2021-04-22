@@ -19,7 +19,14 @@ return require('packer').startup(function()
   use { 'hrsh7th/nvim-compe' }
   use { 'mattn/efm-langserver' }
   use { 'onsails/lspkind-nvim' }
+  use { 'glepnir/lspsaga.nvim' }
+  use { 'kosayoda/nvim-lightbulb' }
+  use {
+      'hrsh7th/vim-vsnip',
+      requires = {{'hrsh7th/vim-vsnip-integ'}}
+  }
   use { 'kabouzeid/nvim-lspinstall' }
+  use { 'mhartington/formatter.nvim' }
 
   -- Formatting
   use { 'sbdchd/neoformat' }
@@ -55,8 +62,8 @@ return require('packer').startup(function()
 
   -- Status bar
   use {
-  'hoob3rt/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- Tabline

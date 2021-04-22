@@ -79,6 +79,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+  },
   ["completion-nvim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/completion-nvim"
@@ -86,6 +90,10 @@ _G.packer_plugins = {
   ["efm-langserver"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/efm-langserver"
+  },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
   ["goyo.vim"] = {
     loaded = true,
@@ -98,6 +106,10 @@ _G.packer_plugins = {
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -128,6 +140,10 @@ _G.packer_plugins = {
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -221,6 +237,14 @@ _G.packer_plugins = {
   ["vim-sneak"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-sneak"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   },
   ["vim-which-key"] = {
     loaded = true,
