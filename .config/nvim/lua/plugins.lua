@@ -1,103 +1,112 @@
 return require('packer').startup(function()
-    
-  -- Packer can manage itself as an optional plugin
-  use {'wbthomason/packer.nvim', opt = true}
 
-  -- Color schemes
-  use { 'sainnhe/gruvbox-material' }
-  use { 'drewtempelmeyer/palenight.vim' }
-  use { 'folke/tokyonight.nvim' }
-  
-  -- Fuzzy finder
-  use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+    -- Packer can manage itself as an optional plugin
+    use {'wbthomason/packer.nvim', opt = true}
 
-  -- LSP and completion
-  use { 'neovim/nvim-lspconfig' }
-  use { 'hrsh7th/nvim-compe' }
-  use { 'mattn/efm-langserver' }
-  use { 'onsails/lspkind-nvim' }
-  use { 'glepnir/lspsaga.nvim' }
-  use { 'kosayoda/nvim-lightbulb' }
-  use {
-      'hrsh7th/vim-vsnip',
-      requires = {{'hrsh7th/vim-vsnip-integ'}}
-  }
-  use { 'kabouzeid/nvim-lspinstall' }
-  use { 'mhartington/formatter.nvim' }
+    -- Color schemes
+    use {'sainnhe/gruvbox-material'}
+    use {'drewtempelmeyer/palenight.vim'}
+    use {'folke/tokyonight.nvim'}
 
-  -- Formatting
-  use { 'sbdchd/neoformat' }
+    -- Fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 
-  -- Lua development
-  use { 'tjdevries/nlua.nvim' }
-  use { 'nvim-lua/completion-nvim' }
-  use { 'euclidianAce/BetterLua.vim' }
+    -- LSP and completion
+    use {'neovim/nvim-lspconfig'}
+    use {'hrsh7th/nvim-compe'}
+    use {'mattn/efm-langserver'}
+    use {'onsails/lspkind-nvim'}
+    use {'glepnir/lspsaga.nvim'}
+    use {'kosayoda/nvim-lightbulb'}
+    use {'hrsh7th/vim-vsnip', requires = {{'hrsh7th/vim-vsnip-integ'}}}
+    use {'kabouzeid/nvim-lspinstall'}
+    use {'mhartington/formatter.nvim'}
+    use {
+        "folke/lsp-trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
-  -- Navigation
-  use { 'preservim/nerdtree' }
+    -- Lua development
+    use {'tjdevries/nlua.nvim'}
+    use {'nvim-lua/completion-nvim'}
+    use {'euclidianAce/BetterLua.vim'}
 
-  -- Auto pairing
-  use { 'jiangmiao/auto-pairs' }
+    -- Navigation
+    use {'preservim/nerdtree'}
 
-  -- Motion
-  use { 'machakann/vim-sandwich' }
-  use { 'justinmk/vim-sneak' }
-  use { 'unblevable/quick-scope' }
+    -- Auto pairing
+    use {'jiangmiao/auto-pairs'}
 
-  -- Writing Prose and Markdown
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-  use { 'godlygeek/tabular' }
-  use { 'plasticboy/vim-markdown' }
-  use { 'reedes/vim-pencil' }
-  use { 'rhysd/vim-grammarous' }
+    -- Motion
+    use {'machakann/vim-sandwich'}
+    use {'justinmk/vim-sneak'}
+    use {'unblevable/quick-scope'}
 
-  -- Indentation
-  use { 'tpope/vim-sleuth' }
+    -- Writing Prose and Markdown
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = 'cd app && yarn install',
+        cmd = 'MarkdownPreview'
+    }
+    use {'godlygeek/tabular'}
+    use {'plasticboy/vim-markdown'}
+    use {'reedes/vim-pencil'}
+    use {'rhysd/vim-grammarous'}
 
-  -- Scrolling
-  use { 'psliwka/vim-smoothie' }
+    -- Indentation
+    use {'tpope/vim-sleuth'}
 
-  -- Status bar
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+    -- Scrolling
+    use {'psliwka/vim-smoothie'}
 
-  -- Tabline
-  use { 'romgrk/barbar.nvim' }
+    -- Status bar
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
-  -- Comments
-  use { 'preservim/nerdcommenter' }
+    -- Tabline
+    use {'romgrk/barbar.nvim'}
 
-  -- Snippets
-  --use { 'SirVer/ultisnips' }
-  --use { 'honza/vim-snippets' }
+    -- Comments
+    use {'preservim/nerdcommenter'}
 
-  -- Git plugins
-  use { 'tpope/vim-fugitive' }
-  use { 'mhinz/vim-signify' }
+    -- Snippets
+    -- use { 'SirVer/ultisnips' }
+    -- use { 'honza/vim-snippets' }
 
-  -- LaTex
-  use { 'lervag/vimtex' }
+    -- Git plugins
+    use {'tpope/vim-fugitive'}
+    use {'mhinz/vim-signify'}
 
-  -- Floating terminal
-  use { 'voldikss/vim-floaterm' }
+    -- LaTex
+    use {'lervag/vimtex'}
 
-  -- Highlighting
-  use 'nvim-treesitter/nvim-treesitter'
+    -- Floating terminal
+    use {'voldikss/vim-floaterm'}
 
-  -- which_key
-  use { 'liuchengxu/vim-which-key' }
+    -- Highlighting
+    use 'nvim-treesitter/nvim-treesitter'
 
-  -- Icons display
-  use { 'ryanoasis/vim-devicons' }
+    -- which_key
+    use {'liuchengxu/vim-which-key'}
 
-  -- Distraction free
-  use { 'junegunn/goyo.vim' }
+    -- Icons display
+    use {'ryanoasis/vim-devicons'}
 
-  -- Python
+    -- Distraction free
+    use {'junegunn/goyo.vim'}
+
+    -- Python
 
 end)

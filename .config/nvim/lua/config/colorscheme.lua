@@ -1,6 +1,6 @@
 local utils = require('utils')
 local cmd = vim.cmd
---utils.opt('o', 'termguicolors', true)
+-- utils.opt('o', 'termguicolors', true)
 cmd 'colorscheme tokyonight'
 --
 -- The theme comes in two styles, "storm" and a darker variant "night".

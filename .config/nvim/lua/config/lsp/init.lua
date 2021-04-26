@@ -1,14 +1,6 @@
 local utils = require 'utils'
 local lsp = require 'lspconfig'
-
-require'lspinstall'.setup() -- important
-
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do require'lspconfig'[server].setup {} end
-
-require('config.lsp.lspkind')
-require('config.lsp.lspsaga')
-require('config.lsp.lightbulb')
+-- require('config.lsp.lightbulb')
 
 vim.lsp.handlers["textDocument/formatting"] =
     function(err, _, result, _, bufnr)
@@ -39,6 +31,7 @@ local function setup_servers()
     for _, server in pairs(servers) do
         if server == "pyright" then
             require'lspconfig'[server].setup {
+                on_attach = on_attach,
                 python = {
                     analysis = {
                         autoSearchPaths = true,
@@ -49,10 +42,19 @@ local function setup_servers()
             }
         elseif server == "efm" then
             require'lspconfig'[server].setup {
-                init_options = {documentFormatting = true},
+                init_options = {
+                    documentFormatting = true,
+                    hover = true,
+                    documentSymbol = true,
+                    codeAction = true,
+                    completion = true
+                },
                 on_attach = on_attach,
                 filetypes = {"lua", "python"},
                 settings = {
+                    version = 2,
+                    logFile = "/home/iyed/efm.log",
+                    logLevel = 1,
                     rootMarkers = {".git/", "pyprojroot.toml"},
                     languages = {
                         lua = {
@@ -63,8 +65,19 @@ local function setup_servers()
                         },
                         python = {
                             {
+                                formatCommand = "isort --quiet -",
+                                formatStdin = true
+                            },
+                            {
                                 formatCommand = "black --quiet -",
                                 formatStdin = true
+                            }, {
+                                lintCommand = "mypy --show-column-numbers --ignore-missing-imports",
+                                lintFormats = {
+                                    "%f=%l:%c: %trror: %m",
+                                    "%f=%l:%c: %tarning: %m",
+                                    "%f=%l:%c: %tote: %m"
+                                }
                             }
                         }
                     }
@@ -84,6 +97,5 @@ require'lspinstall'.post_install_hook = function()
     vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
-vim.api.nvim_exec([[
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
-]], true)
+require('config.lsp.lspsaga')
+require('config.lsp.lspkind')
