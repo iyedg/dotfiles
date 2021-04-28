@@ -103,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
+  ["lsp-trouble.nvim"] = {
+    config = { "\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
@@ -120,10 +125,6 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
-  },
-  neoformat = {
-    loaded = true,
-    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/neoformat"
   },
   nerdcommenter = {
     loaded = true,
@@ -160,6 +161,10 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
+  ["nvim-whichkey-setup.lua"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/nvim-whichkey-setup.lua"
   },
   ["packer.nvim"] = {
     loaded = false,
@@ -257,6 +262,10 @@ _G.packer_plugins = {
 }
 
 time("Defining packer_plugins", false)
+-- Config for: lsp-trouble.nvim
+time("Config for lsp-trouble.nvim", true)
+try_loadstring("\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
+time("Config for lsp-trouble.nvim", false)
 
 -- Command lazy-loads
 time("Defining lazy-load commands", true)

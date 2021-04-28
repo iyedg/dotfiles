@@ -99,7 +99,10 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter'
 
     -- which_key
-    use {'liuchengxu/vim-which-key'}
+    use {
+        'AckslD/nvim-whichkey-setup.lua',
+        requires = {'liuchengxu/vim-which-key'}
+    }
 
     -- Icons display
     use {'ryanoasis/vim-devicons'}

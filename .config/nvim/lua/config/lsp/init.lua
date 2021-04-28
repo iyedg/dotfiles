@@ -52,10 +52,7 @@ local function setup_servers()
                 on_attach = on_attach,
                 filetypes = {"lua", "python"},
                 settings = {
-                    version = 2,
-                    logFile = "/home/iyed/efm.log",
-                    logLevel = 1,
-                    rootMarkers = {".git/", "pyprojroot.toml"},
+                    rootMarkers = {".git/", "pyprojroot.toml", vim.fn.getcwd()},
                     languages = {
                         lua = {
                             {
@@ -71,13 +68,19 @@ local function setup_servers()
                             {
                                 formatCommand = "black --quiet -",
                                 formatStdin = true
-                            }, {
+                            }, { -- flake8
+                                lintCommand = "flake8 --max-line-length 120 --stdin-display-name ${INPUT} -",
+                                lintIgnoreExitCode = true,
+                                lintStdin = true,
+                                lintFormats = {"%f:%l:%c: %m"}
+                            }, { -- mypy
                                 lintCommand = "mypy --show-column-numbers --ignore-missing-imports",
                                 lintFormats = {
-                                    "%f=%l:%c: %trror: %m",
-                                    "%f=%l:%c: %tarning: %m",
-                                    "%f=%l:%c: %tote: %m"
-                                }
+                                    "%f:%l:%c: %trror: %m",
+                                    "%f:%l:%c: %tarning: %m",
+                                    "%f:%l:%c: %tote: %m"
+                                },
+                                lintSource = "mypy"
                             }
                         }
                     }

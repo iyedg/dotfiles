@@ -8,8 +8,12 @@ require('plugins')
 require('config')
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"python", "latex", "lua", "bash", "beancount", "bibtex", "html", "r", "yaml"}, 
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
+    ensure_installed = {
+        "python", "latex", "lua", "bash", "beancount", "bibtex", "html", "r",
+        "yaml"
+    },
+    highlight = {
+        enable = true -- false will disable the whole extension
+    }
 }
+
