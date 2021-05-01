@@ -1,6 +1,5 @@
 local utils = require 'utils'
 local lsp = require 'lspconfig'
--- require('config.lsp.lightbulb')
 
 vim.lsp.handlers["textDocument/formatting"] =
     function(err, _, result, _, bufnr)
@@ -79,8 +78,7 @@ local function setup_servers()
                                     "%f:%l:%c: %trror: %m",
                                     "%f:%l:%c: %tarning: %m",
                                     "%f:%l:%c: %tote: %m"
-                                },
-                                lintSource = "mypy"
+                                }
                             }
                         }
                     }
@@ -102,3 +100,5 @@ end
 
 require('config.lsp.lspsaga')
 require('config.lsp.lspkind')
+require('config.lsp.lightbulb')
+require('config.lsp.lsptrouble')

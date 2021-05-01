@@ -47,8 +47,8 @@ local function save_profiles(threshold)
 end
 
 time("Luarocks path setup", true)
-local package_path_str = "/home/iyed/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/iyed/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/iyed/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/iyed/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/iyed/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/iyed/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/iyed/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/iyed/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/iyed/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/iyed/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,6 +74,11 @@ _G.packer_plugins = {
   ["BetterLua.vim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/BetterLua.vim"
+  },
+  ["Navigator.nvim"] = {
+    config = { "\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0" },
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/Navigator.nvim"
   },
   ["auto-pairs"] = {
     loaded = true,
@@ -104,7 +109,7 @@ _G.packer_plugins = {
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
   ["lsp-trouble.nvim"] = {
-    config = { "\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
   },
@@ -219,6 +224,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-markdown"
   },
+  ["vim-maximizer"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-maximizer"
+  },
+  ["vim-obsession"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-obsession"
+  },
   ["vim-pencil"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-pencil"
@@ -226,6 +239,10 @@ _G.packer_plugins = {
   ["vim-sandwich"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-sandwich"
+  },
+  ["vim-sayonara"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-sayonara"
   },
   ["vim-signify"] = {
     loaded = true,
@@ -262,9 +279,13 @@ _G.packer_plugins = {
 }
 
 time("Defining packer_plugins", false)
+-- Config for: Navigator.nvim
+time("Config for Navigator.nvim", true)
+try_loadstring("\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0", "config", "Navigator.nvim")
+time("Config for Navigator.nvim", false)
 -- Config for: lsp-trouble.nvim
 time("Config for lsp-trouble.nvim", true)
-try_loadstring("\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
+try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
 time("Config for lsp-trouble.nvim", false)
 
 -- Command lazy-loads

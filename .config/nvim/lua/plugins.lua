@@ -82,8 +82,8 @@ return require('packer').startup(function()
     use {'preservim/nerdcommenter'}
 
     -- Snippets
-    -- use { 'SirVer/ultisnips' }
-    -- use { 'honza/vim-snippets' }
+    -- use {'SirVer/ultisnips'}
+    -- use {'honza/vim-snippets'}
 
     -- Git plugins
     use {'tpope/vim-fugitive'}
@@ -110,6 +110,17 @@ return require('packer').startup(function()
     -- Distraction free
     use {'junegunn/goyo.vim'}
 
-    -- Python
+    -- Windows
+    use {'szw/vim-maximizer'}
+    use {'mhinz/vim-sayonara'}
+
+    -- Vim sessions
+    use {'tpope/vim-obsession'}
+
+    -- Tmux integration
+    use {
+        'numToStr/Navigator.nvim',
+        config = function() require('Navigator').setup() end
+    }
 
 end)
