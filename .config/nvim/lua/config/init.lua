@@ -1,11 +1,13 @@
 require('config.colorscheme')
 require('config.nerdtree')
 require('config.telescope')
-require('config.lualine')
 require('config.lsp')
 require('config.compe')
 require('config.barbar')
 require('config.maximizer')
+require('config.vimtex')
+require('config.sneak')
+require('config.quickscope')
 
 require('Navigator').setup({auto_save = 'current', disable_on_zoom = true})
 

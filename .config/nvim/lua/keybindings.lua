@@ -6,10 +6,8 @@ utils.map('v', '>', '>gv')
 
 -- Clear highlighting on escape in normal mode
 -- Credits to: " Clear highlighting on escape in normal mode
--- utils.map('n', '<esc>', ':noh<return><esc>')
--- utils.map('n', '<esc>^[', '<esc>^[')
-
-
+utils.map('n', '<esc>', ':noh<return><esc>')
+utils.map('n', '<esc>^[', '<esc>^[')
 
 -- Credits to https://www.jakeworth.com/my-annotated-vimrc/
 -- Substitute a highlighted word (h/t Vidal Ekechukwu)

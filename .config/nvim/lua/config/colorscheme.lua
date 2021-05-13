@@ -1,27 +1,15 @@
 local utils = require('utils')
 local cmd = vim.cmd
--- utils.opt('o', 'termguicolors', true)
-utils.opt('o', 't_Co', '256')
-utils.opt('o', 'term', 'screen-256color')
-cmd 'colorscheme tokyonight'
---
--- The theme comes in two styles, "storm" and a darker variant "night".
-vim.g.tokyonight_style = "night"
 
--- Comments are italicized by default
-vim.g.tokyonight_italic_comments = true
+utils.opt('o', 'termguicolors', true)
 
--- Keywords are italicized by default
-vim.g.tokyonight_italic_keywords = true
+-- Example config in Lua
+vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
 
--- Functions are not italicized by default
-vim.g.tokyonight_italic_functions = false
+-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+vim.g.tokyonight_colors = {hint = "orange", error = "#ff0000"}
 
--- Enable this to disable setting the background color
-vim.g.tokyonight_transparent = false
-
--- Enabling this option, will hide inactive statuslines and
--- replace them with a thin border instead. Should work with
--- the standard `StatusLine` and `LuaLine`.
-vim.g.tokyonight_hide_inactive_statusline = true
-
+-- Load the colorscheme
+vim.cmd [[colorscheme tokyonight]]

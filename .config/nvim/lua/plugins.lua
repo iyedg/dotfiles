@@ -7,6 +7,9 @@ return require('packer').startup(function()
     use {'sainnhe/gruvbox-material'}
     use {'drewtempelmeyer/palenight.vim'}
     use {'folke/tokyonight.nvim'}
+    use {'ayu-theme/ayu-vim'}
+    use {'franbach/miramare'}
+    use {'rakr/vim-one'}
 
     -- Fuzzy finder
     use {
@@ -23,12 +26,15 @@ return require('packer').startup(function()
     use {'kosayoda/nvim-lightbulb'}
     use {'hrsh7th/vim-vsnip', requires = {{'hrsh7th/vim-vsnip-integ'}}}
     use {'kabouzeid/nvim-lspinstall'}
-    use {'mhartington/formatter.nvim'}
     use {
-        "folke/lsp-trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+        'folke/lsp-trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function() require("trouble").setup {} end
+    }
+    use {
+        "folke/todo-comments.nvim",
         config = function()
-            require("trouble").setup {
+            require("todo-comments").setup {
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
@@ -65,14 +71,18 @@ return require('packer').startup(function()
 
     -- Indentation
     use {'tpope/vim-sleuth'}
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        requires = {'Yggdroot/indentLine'}
+    }
 
     -- Scrolling
     use {'psliwka/vim-smoothie'}
 
     -- Status bar
     use {
-        'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        'vim-airline/vim-airline',
+        requires = {'vim-airline/vim-airline-themes'}
     }
 
     -- Tabline
@@ -83,7 +93,7 @@ return require('packer').startup(function()
 
     -- Snippets
     -- use {'SirVer/ultisnips'}
-    -- use {'honza/vim-snippets'}
+    use {'honza/vim-snippets'}
 
     -- Git plugins
     use {'tpope/vim-fugitive'}
@@ -109,6 +119,7 @@ return require('packer').startup(function()
 
     -- Distraction free
     use {'junegunn/goyo.vim'}
+    use {'junegunn/limelight.vim'}
 
     -- Windows
     use {'szw/vim-maximizer'}

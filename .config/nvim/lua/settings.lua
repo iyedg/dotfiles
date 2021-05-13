@@ -5,7 +5,6 @@ vim.g.mapleader = ' '
 
 local indent = 4
 
-
 cmd 'filetype plugin indent on'
 -- Highlight on yank
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
@@ -43,7 +42,7 @@ cmd 'set cursorline'
 cmd 'set cursorcolumn'
 
 -- Remove trailing whitespace on save
--- cmd 'autocmd BufWritePre * %s/\s\+$//e'
+vim.api.nvim_command([[autocmd BufWritePre * :%s/\s\+$//e]])
 
 cmd 'set diffopt+=vertical'
 cmd 'set timeoutlen=400'

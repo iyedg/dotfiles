@@ -76,13 +76,17 @@ _G.packer_plugins = {
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/BetterLua.vim"
   },
   ["Navigator.nvim"] = {
-    config = { "\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0" },
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0" },
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/Navigator.nvim"
   },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/ayu-vim"
   },
   ["barbar.nvim"] = {
     loaded = true,
@@ -96,10 +100,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/efm-langserver"
   },
-  ["formatter.nvim"] = {
-    loaded = true,
-    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/formatter.nvim"
-  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/goyo.vim"
@@ -108,8 +108,20 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
+  indentLine = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/indentLine"
+  },
+  ["limelight.vim"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/limelight.vim"
+  },
   ["lsp-trouble.nvim"] = {
-    config = { "\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
   },
@@ -121,15 +133,15 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/lualine.nvim"
-  },
   ["markdown-preview.nvim"] = {
     commands = { "MarkdownPreview" },
     loaded = false,
     needs_bufread = false,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
+  },
+  miramare = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/miramare"
   },
   nerdcommenter = {
     loaded = true,
@@ -200,9 +212,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
+  },
+  ultisnips = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/ultisnips"
+  },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -232,6 +261,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-obsession"
   },
+  ["vim-one"] = {
+    loaded = true,
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-one"
+  },
   ["vim-pencil"] = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-pencil"
@@ -260,13 +293,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-sneak"
   },
-  ["vim-vsnip"] = {
+  ["vim-snippets"] = {
     loaded = true,
-    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
+    path = "/home/iyed/.local/share/nvim/site/pack/packer/start/vim-snippets"
   },
   ["vim-which-key"] = {
     loaded = true,
@@ -281,11 +310,15 @@ _G.packer_plugins = {
 time("Defining packer_plugins", false)
 -- Config for: Navigator.nvim
 time("Config for Navigator.nvim", true)
-try_loadstring("\27LJ\2\0027\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0", "config", "Navigator.nvim")
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14Navigator\frequire\0", "config", "Navigator.nvim")
 time("Config for Navigator.nvim", false)
+-- Config for: todo-comments.nvim
+time("Config for todo-comments.nvim", true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time("Config for todo-comments.nvim", false)
 -- Config for: lsp-trouble.nvim
 time("Config for lsp-trouble.nvim", true)
-try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "lsp-trouble.nvim")
 time("Config for lsp-trouble.nvim", false)
 
 -- Command lazy-loads

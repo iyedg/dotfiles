@@ -15,6 +15,26 @@ vim.lsp.handlers["textDocument/formatting"] =
     end
 
 local on_attach = function(client)
+    print("LSP started.");
+
+    -- utils.map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+    utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    -- utils.map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    utils.map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+    -- utils.map('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    -- utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    -- utils.map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    utils.map('n', '<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    utils.map('n', '<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    utils.map('n', '<leader>ah', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    utils.map('n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    utils.map('n', '<leader>ee',
+              '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    utils.map('n', '<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    utils.map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    utils.map('n', '<leader>ai', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+    utils.map('n', '<leader>ao', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+
     if client.resolved_capabilities.document_formatting then
         vim.api.nvim_command [[augroup Format]]
         vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -38,6 +58,25 @@ local function setup_servers()
                         autoImportCompletions = true
                     }
                 }
+            }
+        elseif server == "beancount" then
+            require'lspconfig'[server].setup {
+                -- on_attach = on_attach,
+                cmd = {
+                    -- "node",
+                    -- "--inspect",
+                    -- "/home/brian/repos/beancount-language-server/out/cli.js",
+                    "beancount-langserver", "--stdio"
+                },
+                init_options = {
+                    journalFile = "~/.accounting/ledger.beancount",
+                    pythonPath = "~/.local/pipx/venvs/beancount/bin/python3"
+                },
+                flags = {
+                    -- time in millisec to debounce dichange notifications
+                    debounce_text_changes = 500
+                }
+
             }
         elseif server == "efm" then
             require'lspconfig'[server].setup {
